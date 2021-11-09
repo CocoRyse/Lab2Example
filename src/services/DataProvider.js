@@ -1,64 +1,63 @@
 import { Books } from './data/Books';
 
-export const CreateDataProvider = () => {
-  const books = Books();
+export class DataProvider {
+  static books = Books();
 
   // Предикат для поиска книги по ID
-  const findBookByIdPredicate = (book, id) => book.id === id;
+  static findBookByIdPredicate = (book, id) => book.id === id;
 
-  const getAllBooks = () => Promise.resolve(books);
+  static getAllBooks = () =>
+    Promise.resolve(
+      this.books.map((book) => ({ id: book.id, title: book.title }))
+    );
 
-  const getBookByID = (id) =>
+  static getBookByID = (id) =>
     new Promise((resolve, reject) => {
-      const result = books.find((book) => findBookByIdPredicate(book, id));
+      const result = this.books.find((book) =>
+        this.findBookByIdPredicate(book, id)
+      );
       if (!result) {
         reject('Nothing found');
       }
       resolve(result);
     });
 
-  const updateBook = (newBookData) =>
+  static updateBook = (newBookData) =>
     new Promise((resolve, reject) => {
-      const bookIndex = books.findIndex((book) =>
-        findBookByIdPredicate(book, id)
+      const bookIndex = this.books.findIndex((book) =>
+        this.findBookByIdPredicate(book, newBookData.id)
       );
 
       if (bookIndex < 0) {
         reject('Nothing found');
       }
 
-      books[bookIndex] = newBookData;
+      this.books[bookIndex] = newBookData;
 
       resolve(bookIndex);
     });
 
-  const putBook = (newBook) => {
-    const newBookIndex = books.push({
-      id: books.length,
+  static putBook = (newBook) => {
+    const newBookIndex = this.books.push({
+      id: this.books.length,
       ...newBook,
     });
 
     return Promise.resolve(newBookIndex);
   };
 
-  const deleteBook = (id) =>
+  static deleteBook = (id) =>
     new Promise((resolve, reject) => {
-      const index = books.findIndex((book) => findBookByIdPredicate(book, id));
+      const index = this.books.findIndex((book) =>
+        this.findBookByIdPredicate(book, id)
+      );
 
       if (index < 0) {
         return reject('Nothing Found');
       }
 
-      books.splice(index, 1);
+      this.books.splice(index, 1);
 
-      resolve(books.length);
+      resolve(this.books.length);
     });
-
-  return {
-    getAllBooks,
-    getBookByID,
-    updateBook,
-    putBook,
-    deleteBook,
-  };
-};
+}
