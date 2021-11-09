@@ -2,10 +2,10 @@
 Будьте пожалуйста внимательны, если будете вдохновляться материалами этого репозитория, здесь может быть много неочевидных багов, потому что во время лайвкодинга сложно их избежать
 
 ## Добавление нового элемента
-<img src="https://s9.gifyu.com/images/DOBAVLENIE.gif" width="250"/>
+<img src="" width="250"/>
 
 ## Удаление
-<img src="https://s9.gifyu.com/images/UDALENIE.gif" width="250"/>
+<img src="" width="250"/>
 
 ## Редактирование
 <img src="https://s9.gifyu.com/images/REDAKTIROANIE.gif" width="250"/>
