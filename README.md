@@ -3,6 +3,7 @@
 
 ## Добавление нового элемента
 <img src="https://s9.gifyu.com/images/DOBAVLENIE971665170b28c5fd.md.gif" width="250"/>
+https://s9.gifyu.com/images/DOBAVLENIE971665170b28c5fd.gif
 
 ## Удаление
 <img src="https://s9.gifyu.com/images/UDALENIE0058ca623fb35422.gif" width="250"/>
