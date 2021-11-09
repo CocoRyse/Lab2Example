@@ -1,5 +1,5 @@
 import React from 'react';
 
-const MainScreen = () => null;
+const MainScreen = ({ navigation }) => null;
 
 export default MainScreen;
