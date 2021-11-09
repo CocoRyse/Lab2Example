@@ -3,6 +3,7 @@
 
 ## Добавление нового элемента (гифку не грузит на гитхаб)
 https://s9.gifyu.com/images/DOBAVLENIE971665170b28c5fd.gif
+
 <img src="https://s9.gifyu.com/images/DOBAVLENIE971665170b28c5fd.md.gif" width="250"/>
 
 ## Удаление
