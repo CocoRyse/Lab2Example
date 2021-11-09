@@ -3,7 +3,14 @@ import { Card } from 'react-native-elements';
 import { DataProvider } from '../services/DataProvider';
 import { View } from 'react-native';
 import { ErrorMessage, Formik } from 'formik';
-import { NativeBaseProvider, Text, Input, Button } from 'native-base';
+import {
+  NativeBaseProvider,
+  Text,
+  Input,
+  Button,
+  Flex,
+  Box,
+} from 'native-base';
 import { object, string, number } from 'yup';
 
 const ErrorComponent = (msg) => (
@@ -52,7 +59,7 @@ const EditBookScreen = ({ route, navigation }) => {
     <Card>
       <Card.Title>{id === -1 ? 'Добавление' : 'Редактирование'}</Card.Title>
       <Card.Divider />
-      <View>
+      <View style={{ height: 600 }}>
         <Formik
           initialValues={defaultValues}
           enableReinitialize={true}
@@ -62,49 +69,33 @@ const EditBookScreen = ({ route, navigation }) => {
           {(props) => {
             return (
               <NativeBaseProvider>
-                <View>
-                  <Text fontSize="md">Название книги:</Text>
-                  <Input
-                    onChangeText={props.handleChange('title')}
-                    onBlur={props.handleBlur('title')}
-                    value={props.values.title}
-                    placeholder="Введите название книги"
-                    variant="underlined"
-                  />
-                  <ErrorMessage name="title" />
-                </View>
-                <Button
-                  size="sm"
-                  fontSize="md"
-                  variant="outline"
-                  w={{
-                    md: '15%',
-                    base: '75%',
-                  }}
-                  h={{
-                    md: '10',
-                  }}
-                  mt={6}
-                  onPress={props.handleSubmit}
-                >
-                  Сохранить
-                </Button>
-                <Button
-                  size="sm"
-                  fontSize="md"
-                  variant="outline"
-                  w={{
-                    md: '15%',
-                    base: '75%',
-                  }}
-                  h={{
-                    md: '10',
-                  }}
-                  mt={6}
-                  onPress={() => navigation.goBack()}
-                >
-                  Удалить
-                </Button>
+                <Flex>
+                  <Box>
+                    <Text fontSize="md">Название книги:</Text>
+                    <Input
+                      onChangeText={props.handleChange('title')}
+                      onBlur={props.handleBlur('title')}
+                      value={props.values.title}
+                      placeholder="Введите название книги"
+                      variant="underlined"
+                      mt={5}
+                    />
+                    <ErrorMessage name="title" />
+                  </Box>
+                  <Button
+                    size="sm"
+                    fontSize="md"
+                    variant="outline"
+                    colorScheme="coolGray"
+                    h={{
+                      md: '10',
+                    }}
+                    mt={6}
+                    onPress={props.handleSubmit}
+                  >
+                    Сохранить
+                  </Button>
+                </Flex>
               </NativeBaseProvider>
             );
           }}

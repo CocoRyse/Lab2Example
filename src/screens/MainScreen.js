@@ -105,7 +105,7 @@ export default MainScreen;
 
 const styles = StyleSheet.create({
   list: {
-    marginBottom: 120,
+    marginBottom: 150,
   },
   textContainer: {
     borderColor: '#D3D3D3',
@@ -117,10 +117,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 60,
+    minHeight: 60,
   },
   text: {
     fontSize: 25,
-    minWidth: 350,
+    maxWidth: 250,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
 });

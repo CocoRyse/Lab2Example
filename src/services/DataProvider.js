@@ -54,8 +54,8 @@ export class DataProvider {
   // Добавить новую книгу
   static putBook = (newBook) => {
     const newBookIndex = this.books.push({
-      id: this.books.length,
       ...newBook,
+      id: +Date(),
     });
 
     return Promise.resolve(newBookIndex);
