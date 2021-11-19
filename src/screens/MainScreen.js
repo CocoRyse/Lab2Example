@@ -32,7 +32,7 @@ const MainScreen = ({ navigation }) => {
     return () => {
       shouldComponentsUpdate = false;
     };
-  }, [books]);
+  }, []);
 
   const handleDelete = (id) => {
     DataProvider.deleteBook(id);
